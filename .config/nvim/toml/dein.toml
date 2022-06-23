@@ -1,0 +1,152 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
+repo = 'hoob3rt/lualine.nvim'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+hook_add = '''
+  " Please add below in your vimrc
+  call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
+  call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
+  call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <silent><C-n> :NERDTree<CR>
+'''
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+build = 'npm install'
+on_ft = ['javascript', 'typescript', 'vue', 'html', 'tsx', 'css', 'scss', 'json', 'markdown']
+hook_add = '''
+source ~/.config/nvim/plugins/vim-prettier.rc.vim
+'''
+
+[[plugins]]
+repo = 'vim-syntastic/syntastic'
+hook_add = '''
+source ~/.config/nvim/plugins/syntastic.rc.vim
+'''
+# 補完関係 #####################################################################
+[[plugins]]
+ repo = 'Shougo/ddc.vim'
+ on_event = 'InsertEnter'
+ depends = ['denops.vim']
+ hook_source = '''
+  call ddc#custom#patch_global('sources', ['nvim-lsp','around'])
+  call ddc#custom#patch_global('sourceOptions', {
+    \ '_': {
+      \ 'matchers': ['matcher_head'],
+      \ 'sorters': ['sorter_rank']
+    \ },
+    \ 'around': {
+      \ 'mark': 'around'
+    \ }, 
+    \ 'nvim-lsp': {
+      \ 'mark': 'lsp',
+      \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*'
+    \ },
+  \ })
+  call ddc#enable()
+'''
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+# 現在の行の周辺の単語を候補として抽出してくれる ###############################
+[[plugins]]
+ repo = 'Shougo/ddc-around'
+ on_source = 'ddc.vim'
+
+# 入力中の文字列に基づいて候補から絞り込みを行う ###############################
+[[plugins]]
+ repo = 'Shougo/ddc-matcher_head'
+ on_source = 'ddc.vim'
+
+# 候補の一覧をマッチした順・すでに入力されている順でソートする #################
+[[plugins]]
+ repo = 'Shougo/ddc-sorter_rank'
+ on_source = 'ddc.vim'
+
+################################################################################
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'
+# HTMLの閉じタグを生成する ####################################################
+[[plugins]]
+repo = 'alvan/vim-closetag'
+hook_add = '''
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx,*.ts,*.js'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.js,*.ts'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,tsx,js,ts'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx,js,ts'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
+'''
+
+# バッファ管理############################################################
+[[plugins]]
+repo = 'ap/vim-buftabline'
+
