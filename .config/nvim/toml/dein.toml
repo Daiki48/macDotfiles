@@ -22,10 +22,10 @@ repo = 'cespare/vim-toml'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 hook_add = '''
-  " Please add below in your vimrc
-  call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
-  call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
-  call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+" Please add below in your vimrc
+call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
+call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
+call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 '''
 
 [[plugins]]
@@ -37,7 +37,7 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-  nnoremap <silent><C-n> :NERDTree<CR>
+nnoremap <silent><C-n> :NERDTree<CR>
 '''
 
 [[plugins]]
@@ -59,21 +59,24 @@ source ~/.config/nvim/plugins/syntastic.rc.vim
  on_event = 'InsertEnter'
  depends = ['denops.vim']
  hook_source = '''
-  call ddc#custom#patch_global('sources', ['nvim-lsp','around'])
-  call ddc#custom#patch_global('sourceOptions', {
-    \ '_': {
-      \ 'matchers': ['matcher_head'],
-      \ 'sorters': ['sorter_rank']
-    \ },
-    \ 'around': {
-      \ 'mark': 'around'
-    \ }, 
-    \ 'nvim-lsp': {
-      \ 'mark': 'lsp',
-      \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*'
-    \ },
-  \ })
-  call ddc#enable()
+call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'nextword'])
+call ddc#custom#patch_global('sourceOptions', {
+  \ '_': {
+    \ 'matchers': ['matcher_head'],
+    \ 'sorters': ['sorter_rank']
+  \ },
+  \ 'around': {
+    \ 'mark': 'around'
+  \ }, 
+  \ 'nvim-lsp': {
+    \ 'mark': 'lsp',
+    \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*'
+  \ },
+  \ 'nextword': {
+    \ 'mark': 'nextword',
+  \ },
+\ })
+call ddc#enable()
 '''
 
 [[plugins]]
@@ -81,8 +84,12 @@ repo = 'vim-denops/denops.vim'
 
 # 現在の行の周辺の単語を候補として抽出してくれる ###############################
 [[plugins]]
- repo = 'Shougo/ddc-around'
- on_source = 'ddc.vim'
+repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-nextword'
+on_source = 'ddc.vim'
 
 # 入力中の文字列に基づいて候補から絞り込みを行う ###############################
 [[plugins]]
@@ -94,10 +101,28 @@ repo = 'vim-denops/denops.vim'
  repo = 'Shougo/ddc-sorter_rank'
  on_source = 'ddc.vim'
 
-################################################################################
+# language server################################################################
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
 on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+on_event = 'BufEnter'
+hook_source = '''
+lua << EOF
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  server:setup(opts)
+end)
+EOF
+'''
+
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
+on_source = 'nvim-lspconfig'
+
 # HTMLの閉じタグを生成する ####################################################
 [[plugins]]
 repo = 'alvan/vim-closetag'
@@ -149,4 +174,3 @@ let g:closetag_close_shortcut = '<leader>>'
 # バッファ管理############################################################
 [[plugins]]
 repo = 'ap/vim-buftabline'
-
