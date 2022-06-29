@@ -82,6 +82,13 @@ call ddc#enable()
 [[plugins]]
 repo = 'vim-denops/denops.vim'
 
+[[plugins]]
+repo = 'vim-denops/denops-helloworld.vim'
+
+# 初めての自作プラグイン ######################################################
+[[plugins]]
+repo = 'Daiki48/hello-daiki'
+
 # 現在の行の周辺の単語を候補として抽出してくれる ###############################
 [[plugins]]
 repo = 'Shougo/ddc-around'
@@ -111,12 +118,28 @@ repo = 'neovim/nvim-lspconfig'
 on_event = 'BufEnter'
 hook_source = '''
 lua << EOF
+
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
   local opts = {}
   server:setup(opts)
 end)
+
 EOF
+
+let g:lsp_settings = {
+    \  "sumneko-lua-language-server": {
+    \       "workspace_config": {
+    \           "Lua": {
+    \               "diagnostics": {
+    \                   "globals": ["hs", "vim", "it", "describe", "before_each", "after_each"],
+    \                   "disable": ["lowercase-global", "undefined-global", "unused-local", "unused-vararg", "trailing-space"]
+    \               }
+    \           }
+    \       }
+    \   }
+    \}
+
 '''
 
 [[plugins]]
