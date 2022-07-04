@@ -1,11 +1,10 @@
-# 区切り文字やアイコン（一目でなにか分かる名前にしておく）
+# icons name
 set -l separator_triangle           \ue0b0
 set -l icon_cross                   \uf00d
 set -l icon_plus                    \uf067 
 set -l icon_three_point_reader      \uf6d7 
 set -l icon_octocat                 \uf113
  
-# 区切り文字などを、少し抽象的な名前で登録する
 set segment_separator               $separator_triangle
 set icon_miss                       $icon_cross
 set icon_untracked                  $icon_three_point_reader
@@ -22,7 +21,8 @@ function _segment
     set_color -b $argv[1] $argv[2]
     echo -n "$segment_separator "
 end
- 
+
+# homeディレクトリかどうか
 function _prompt_dir
  
     if [ $HOME = $PWD ]; 
@@ -35,6 +35,7 @@ function _prompt_dir
     _segment $color_user $color_dark
 end
  
+# ユーザー名
 function _prompt_user
     printf 'daiki ' (set_color $white)(whoami)
  
@@ -46,6 +47,7 @@ function _prompt_user
     end
 end
  
+# git関連
 function _git_prompt_untracked
     echo (command git ls-files --others --exclude-standard --directory --no-empty-directory --error-unmatch -- :/ 2> /dev/null)
 end
@@ -75,6 +77,7 @@ function _prompt_git
     end
 end
  
+# promptの表示
 function fish_prompt
  
     set -l last_status $status

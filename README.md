@@ -2,7 +2,9 @@
 dotfiles for mac
 
 # managed
-- nvim
+- .config
+  - nvim
+  - fish
 
 # Using createLink.sh
 This sh creates a link to the .config itself. `fish` or `nvim` alone can be created with the following command.
