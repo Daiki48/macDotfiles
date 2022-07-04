@@ -197,3 +197,12 @@ let g:closetag_close_shortcut = '<leader>>'
 # バッファ管理############################################################
 [[plugins]]
 repo = 'ap/vim-buftabline'
+
+# 縦移動##################################################################
+[[plugins]]
+repo = 'skanehira/jumpcursor.vim'
+
+# Pmenu color edit #######################################################
+[[plugins]]
+repo = 'Daiki48/hi-popmenu.vim'
+

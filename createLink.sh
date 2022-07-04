@@ -18,5 +18,5 @@ for f in .??*; do
   [[ "$f" =~ ".swp$" ]] && continue
 
   # シンボリックを作成
-  ln -snfv ${DOTFILES_DIR}/$f ~
+  ln -s ${DOTFILES_DIR}/$f ~
 done
