@@ -201,6 +201,9 @@ repo = 'ap/vim-buftabline'
 # 縦移動##################################################################
 [[plugins]]
 repo = 'skanehira/jumpcursor.vim'
+hook_add = '''
+map ;j <Plug>(jumpcursor-jump)
+'''
 
 # Pmenu color edit #######################################################
 [[plugins]]
