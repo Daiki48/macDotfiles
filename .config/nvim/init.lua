@@ -72,14 +72,18 @@ local lualine = require('lualine')
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = 'ayu_mirage',
-    component_separators = {'', ''},
-    section_separators = {'', ''},
+    theme = 'iceberg_dark',
+    component_separators = {left = '', right = ''},
+    section_separators = {left = '', right = ''},
     disabled_filetypes = {}
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch'},
+    lualine_b = {
+      'branch',
+      'diff',
+      'diagnostics'
+    },
     lualine_c = {
       {
         'filename',

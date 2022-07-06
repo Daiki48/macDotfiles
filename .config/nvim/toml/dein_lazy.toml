@@ -1,7 +1,7 @@
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo = 'obaland/vfiler.vim'
 hook_add = '''
-nnoremap <silent><C-n> :NERDTree<CR>
+source ~/.config/nvim/plugins/vfiler.rc.vim
 '''
 
 # 初めての自作プラグイン #
@@ -10,14 +10,11 @@ repo = 'Daiki48/hello-daiki'
 
 # 補完関係 #
 [[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
 repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_source = '''
-call ddc#custom#patch_global('sources', ['nvim-lsp', 'around', 'nextword'])
+call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
 call ddc#custom#patch_global('sourceOptions', {
   \ '_': {
     \ 'matchers': ['matcher_head'],
@@ -30,9 +27,6 @@ call ddc#custom#patch_global('sourceOptions', {
     \ 'mark': 'L',
     \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*'
   \ },
-  \ 'nextword': {
-    \ 'mark': 'NW',
-  \ },
 \ })
 call ddc#custom#patch_global('sourceParams', {
 	\	'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
@@ -43,10 +37,6 @@ call ddc#enable()
 # 現在の行の周辺の単語を候補として抽出してくれる #
 [[plugins]]
 repo = 'Shougo/ddc-around'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-nextword'
 on_source = 'ddc.vim'
 
 # 入力中の文字列に基づいて候補から絞り込みを行う #
@@ -91,3 +81,18 @@ on_source = 'ddu.vim'
 repo = 'Shougo/ddu-column-filename'
 on_source = 'ddu.vim'
 
+# language server #
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+# on_event = 'BufEnter'
+hook_source = '''
+source ~/.config/nvim/plugins/lspconfigs.rc.vim
+'''
+
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
+on_source = 'nvim-lspconfig'

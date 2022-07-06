@@ -62,20 +62,6 @@ map ;j <Plug>(jumpcursor-jump)
 [[plugins]]
 repo = 'Daiki48/hi-popmenu.vim'
 
-# language server #
 [[plugins]]
-repo = 'Shougo/ddc-nvim-lsp'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-on_event = 'BufEnter'
-hook_source = '''
-source ~/.config/nvim/plugins/lspconfigs.rc.vim
-'''
-
-[[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
-on_source = 'nvim-lspconfig'
-
+repo = 'vim-denops/denops.vim'
 
