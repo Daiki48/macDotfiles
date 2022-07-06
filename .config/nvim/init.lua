@@ -17,8 +17,10 @@ end
 if (vim.fn['dein#load_state'](dein_dir) == 1) then
 	local rc_dir = vim.fn.expand('~/.config/nvim/toml')
 	local toml = rc_dir..'/dein.toml'
+	local lazy_toml = rc_dir..'/dein_lazy.toml'
 	vim.fn['dein#begin'](dein_dir)
 	vim.fn['dein#load_toml'](toml, { lazy = 0 })
+	vim.fn['dein#load_toml'](lazy_toml, { lazy = 1 })
 	vim.fn['dein#end']()
 	vim.fn['dein#save_state']()
 end
@@ -104,28 +106,4 @@ lualine.setup {
 api.nvim_set_keymap('n', '<C-l>', '<cmd>bnext<cr>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<C-h>', '<cmd>bprevious<cr>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<C-q>', '<cmd>b#<cr><cmd>bd#<cr>', { noremap = true })
-
--- tsserverとdenolsを切替
-local nvim_lsp = require('lspconfig')
-local lsp_installer = require("nvim-lsp-installer")
-
-local node_root_dir = nvim_lsp.util.root_pattern("package.json", "node_modules")
-local buf_name = api.nvim_buf_get_name(0)
-local current_buf = api.nvim_get_current_buf()
-local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
-
-lsp_installer.on_server_ready(function(server)
-  local opts = {}
-
-  if server.name == "tsserver" or server.name == "eslint" then
-    opts.autostart = is_node_repo
-  elseif server.name == "denols" then
-    opts.autostart = not(is_node_repo)
-    -- 以下は出し分けとは関係ないが設定しておくのがオススメ
-    opts.init_options = { lint = true, unstable = true, }
-  end
-
-  server:setup(opts)
-  vim.cmd [[ do User LspAttachBuffers ]]
-end)
 

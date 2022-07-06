@@ -1,28 +1,28 @@
 " hook_sourceの中身
 call ddu#custom#patch_global({
-			\	'ui': 'filer',
-			\	'sources': [
-			\		{
-			\			'name': 'file',
-			\			'params': {},
-			\		}
-			\	],
-			\	'sourceOptions': {
-				\		'_': {
-					\		'columns': ['filename'],
-					\	},
+	\	'ui': 'filer',
+	\	'sources': [
+	\		{
+	\			'name': 'file',
+	\			'params': {},
+	\		}
+	\	],
+	\	'sourceOptions': {
+		\		'_': {
+			\		'columns': ['filename'],
 			\	},
-			\	'kindOptions': {
-				\	'file': {
-					\	'defaultAction': 'open',
-				\	},
-			\	},
-			\	'uiParams': {
-				\	'filer': {
-					\	'split': 'floating',
-				\	}
-			\	},
-			\	})
+	\	},
+	\	'kindOptions': {
+		\	'file': {
+			\	'defaultAction': 'open',
+		\	},
+	\	},
+	\	'uiParams': {
+		\	'filer': {
+			\	'split': 'floating',
+		\	}
+	\	},
+	\	})
 
 autocmd FileType ddu-filer call s:ddu_my_settings()
 
@@ -39,4 +39,4 @@ function! s:ddu_my_settings() abort
 endfunction
 
 " 起動コマンド
-nmap <silent> ;f <Cmd>call ddu#start({})<CR>
+map <silent> fo <Cmd>call ddu#start({})<CR>
