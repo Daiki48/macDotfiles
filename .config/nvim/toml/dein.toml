@@ -28,9 +28,6 @@ call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 
 '''
 
 [[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
