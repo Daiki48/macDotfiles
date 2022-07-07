@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/nakashima/.vim/colors/iceberg.vim'
+let g:netrw_dirhist_5='/Users/nakashima/macDotfiles'
+let g:netrw_dirhist_4='/Users/nakashima/Documents/lessons/typescript/vim-practice/src'
+let g:netrw_dirhist_3='/Users/nakashima/Documents/lessons/typescript/props-practise/src'
+let g:netrw_dirhist_2='/Users/nakashima/Documents/lessons/typescript/props-practise'
+let g:netrw_dirhist_1='/Users/nakashima/Documents/lessons'
+let g:netrw_dirhist_0='/Users/nakashima/Documents/lessons/typescript'
+let g:netrw_dirhist_9='/Users/nakashima/Documents/lessons'
+let g:netrw_dirhist_8='/Users/nakashima/Documents'
+let g:netrw_dirhist_7='/Users/nakashima'
