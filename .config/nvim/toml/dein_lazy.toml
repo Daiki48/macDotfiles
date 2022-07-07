@@ -26,10 +26,6 @@ on_source = 'fern.vim'
 [[plugins]]
 repo = 'lambdalisue/fern-git-status.vim'
 
-[[plugins]]
-repo = 'lambdalisue/fern-hijack.vim'
-on_source = 'fern.vim'
-
 # 初めての自作プラグイン #
 [[plugins]]
 repo = 'Daiki48/hello-daiki'
@@ -148,6 +144,7 @@ on_source = 'ddu.vim'
 repo = 'Shougo/ddu-column-filename'
 on_source = 'ddu.vim'
 
+# fzf #
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 hook_add = '''

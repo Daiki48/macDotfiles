@@ -8,7 +8,10 @@ repo = 'wsdjeg/dein-ui.vim'
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
-repo = 'sheerun/vim-polyglot'
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+colorscheme iceberg
+'''
 
 [[plugins]]
 repo = 'hoob3rt/lualine.nvim'
@@ -61,4 +64,3 @@ repo = 'Daiki48/hi-popmenu.vim'
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-
