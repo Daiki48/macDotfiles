@@ -5,7 +5,14 @@ return {
 --  window_background_opacity = 0.88,
   font = wezterm.font("Hack", {weight="Bold", italic=false}),
   font_size = 20.0,
+  initial_rows = 35,
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
   default_cursor_style = 'BlinkingBar',
   enable_csi_u_key_encoding = true,
+  window_padding = {
+	  left = 0,
+	  right = 0,
+	  top = 0,
+	  bottom = 0,
+  },
 }

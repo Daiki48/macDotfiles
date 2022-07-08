@@ -1,5 +1,4 @@
 require('options')
-require('tlines')
 
 -- dein.vimの設定
 local api = vim.api
