@@ -2,13 +2,14 @@ let g:denops#deno = '/opt/homebrew/bin/deno'
 
 " developement now
 set rtp+=~/dev/spackmg.vim
+set rtp+=~/dev/sld.vim
 
 
 " syntax & colorscheme
 syntax on
 syntax enable
 colorscheme iceberg
-let g:lightline={'colorscheme': 'iceberg'}
+" let g:lightline={'colorscheme': 'iceberg'}
 
 " search
 set hlsearch
