@@ -13,6 +13,7 @@ hook_add = '''
 colorscheme iceberg
 '''
 
+# statusline & tabline #
 [[plugins]]
 repo = 'hoob3rt/lualine.nvim'
 
@@ -47,9 +48,6 @@ hook_add = '''
 source ~/.config/nvim/plugins/syntastic.rc.vim
 '''
 
-# バッファ管理 #
-[[plugins]]
-repo = 'ap/vim-buftabline'
 
 # 縦移動 #
 [[plugins]]
