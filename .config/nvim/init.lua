@@ -1,40 +1,43 @@
-require('options')
-
--- dein.vimの設定
 local api = vim.api
+local cmd = vim.cmd
+local fn = vim.fn
+local keymap = api.nvim_set_keymap
 
-local dein_dir = vim.fn.expand('~/.cache/dein')
+require('options')
+-- dein.vim init settings
+
+local dein_dir = fn.expand('~/.cache/dein')
 local dein_repo_dir = dein_dir..'/repos/github.com/Shougo/dein.vim'
 
 vim.o.runtimepath = dein_repo_dir..','..vim.o.runtimepath
 
 -- dein install check
-if (vim.fn.isdirectory(dein_repo_dir) == 0) then
+if (fn.isdirectory(dein_repo_dir) == 0) then
 	os.execute('git clone https://github.com/Shougo/dein.vim'..dein_repo_dir)
 end
 
 -- begin settings
-if (vim.fn['dein#load_state'](dein_dir) == 1) then
-	local rc_dir = vim.fn.expand('~/.config/nvim/toml')
+if (fn['dein#load_state'](dein_dir) == 1) then
+	local rc_dir = fn.expand('~/.config/nvim/toml')
 	local toml = rc_dir..'/dein.toml'
 	local lazy_toml = rc_dir..'/dein_lazy.toml'
-	vim.fn['dein#begin'](dein_dir)
-	vim.fn['dein#load_toml'](toml, { lazy = 0 })
-	vim.fn['dein#load_toml'](lazy_toml, { lazy = 1 })
-	vim.fn['dein#end']()
-	vim.fn['dein#save_state']()
+	fn['dein#begin'](dein_dir)
+	fn['dein#load_toml'](toml, { lazy = 0 })
+	fn['dein#load_toml'](lazy_toml, { lazy = 1 })
+	fn['dein#end']()
+	fn['dein#save_state']()
 end
 
 -- plugin install check
-if (vim.fn['dein#check_install']() ~= 0) then
-	vim.fn['dein#install']()
+if (fn['dein#check_install']() ~= 0) then
+	fn['dein#install']()
 end
 
 -- plugin remove check
-local removed_plugins = vim.fn['dein#check_clean']()
-if vim.fn.len(removed_plugins) > 0 then
-	vim.fn.map(removed_plugins, "delete(v:val, 'rf')")
-	vim.fn['dein#recache_runtimepath']()
+local removed_plugins = fn['dein#check_clean']()
+if fn.len(removed_plugins) > 0 then
+	fn.map(removed_plugins, "delete(v:val, 'rf')")
+	fn['dein#recache_runtimepath']()
 	local impatient_ok, impatient = pcall(require, "impatient")
 	if impatient_ok then
 	  impatient.enable_profile()
@@ -42,7 +45,7 @@ if vim.fn.len(removed_plugins) > 0 then
 end
 
 -- leave insert
-api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true })
+keymap('i', 'jk', '<esc>', { noremap = true })
 -- cursor move
 api.nvim_set_keymap('n', '<S-j>', '5j', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<S-k>', '5k', { noremap = true, silent = true })
@@ -51,20 +54,12 @@ api.nvim_set_keymap('v', '<S-k>', '5k', { noremap = true, silent = true })
 -- save file
 api.nvim_set_keymap('n', '<leader>w', '<cmd>update<cr>', { noremap = true })
 
--- スペースキーにleaderキーを割り当てる
-vim.g.mapleader = ' '
-
-vim.cmd('augroup lua')
-vim.cmd('autocmd!')
-vim.cmd('autocmd InsertEnter * echo "insert enter"')
-vim.cmd('augroup END')
-
 -- insertモードを離れると日本語入力をオフ
-vim.cmd('augroup fcitx')
-vim.cmd('autocmd!')
-vim.cmd("autocmd InsertLeave * :call system('fcitx-remote -c')")
-vim.cmd("autocmd CmdlineLeave * :call system('fcitx-remote -c')")
-vim.cmd('augroup END')
+cmd('augroup fcitx')
+cmd('autocmd!')
+cmd("autocmd InsertLeave * :call system('fcitx-remote -c')")
+cmd("autocmd CmdlineLeave * :call system('fcitx-remote -c')")
+cmd('augroup END')
 
 -- lualine
 local lualine = require('lualine')
@@ -78,7 +73,9 @@ lualine.setup {
     disabled_filetypes = {}
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = {
+      'mode',
+    },
     lualine_b = {
       'branch',
       'diff',
@@ -87,7 +84,6 @@ lualine.setup {
     lualine_c = {
       {
         'filename',
-        'g:coc_status'
       }
     },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
@@ -114,8 +110,13 @@ lualine.setup {
 }
 
 -- tabs toggle keymapping
-api.nvim_set_keymap('n', '<C-l>', '<cmd>bnext<cr>', { noremap = true, silent = true })
-api.nvim_set_keymap('n', '<C-h>', '<cmd>bprevious<cr>', { noremap = true, silent = true })
-api.nvim_set_keymap('n', '<C-q>', '<cmd>b#<cr><cmd>bd#<cr>', { noremap = true })
+keymap('n', '<C-l>', '<cmd>bnext<cr>', { noremap = true, silent = true })
+keymap('n', '<C-h>', '<cmd>bprevious<cr>', { noremap = true, silent = true })
+keymap('n', '<C-q>', '<cmd>b#<cr><cmd>bd#<cr>', { noremap = true })
 
+-- telescope command-line
+keymap('n', 'ff', '<cmd>Telescope find_files<cr>', { noremap = true })
+keymap('n', 'fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
+keymap('n', 'fb', '<cmd>Telescope buffers<cr>', { noremap = true })
+keymap('n', 'fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
 

@@ -31,50 +31,66 @@ repo = 'lambdalisue/fern-git-status.vim'
 repo = 'Daiki48/hello-daiki'
 
 # 補完関係 #
-[[plugins]]
-repo = 'Shougo/ddc.vim'
-on_event = 'InsertEnter'
-depends = ['denops.vim']
-hook_source = '''
-call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
-call ddc#custom#patch_global('sourceOptions', {
-  \ '_': {
-    \ 'matchers': ['matcher_head'],
-    \ 'sorters': ['sorter_rank']
-  \ },
-  \ 'around': {
-    \ 'mark': 'A'
-  \ }, 
-  \ 'nvim-lsp': {
-    \ 'mark': 'L',
-    \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*'
-  \ },
-\ })
-call ddc#custom#patch_global('sourceParams', {
-	\	'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
-	\	})
-call ddc#enable()
-'''
+# [[plugins]]
+# repo = 'Shougo/ddc.vim'
+# on_event = 'InsertEnter'
+# depends = ['denops.vim']
+# hook_source = '''
+# call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
+# call ddc#custom#patch_global('sourceOptions', {
+#   \ '_': {
+#     \ 'matchers': ['matcher_head'],
+#     \ 'sorters': ['sorter_rank']
+#   \ },
+#   \ 'around': {
+#     \ 'mark': 'A'
+#   \ }, 
+#   \ 'nvim-lsp': {
+#     \ 'mark': 'L',
+#     \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*'
+#   \ },
+# \ })
+# call ddc#enable()
+# '''
 
-# 現在の行の周辺の単語を候補として抽出してくれる #
-[[plugins]]
-repo = 'Shougo/ddc-around'
-on_source = 'ddc.vim'
+# # 現在の行の周辺の単語を候補として抽出してくれる #
+# [[plugins]]
+# repo = 'Shougo/ddc-around'
+# on_source = 'ddc.vim'
 
-# 入力中の文字列に基づいて候補から絞り込みを行う #
-[[plugins]]
-repo = 'Shougo/ddc-matcher_head'
-on_source = 'ddc.vim'
+# # 入力中の文字列に基づいて候補から絞り込みを行う #
+# [[plugins]]
+# repo = 'Shougo/ddc-matcher_head'
+# on_source = 'ddc.vim'
 
-# 候補の一覧をマッチした順・すでに入力されている順でソートする #
-[[plugins]]
-repo = 'Shougo/ddc-sorter_rank'
-on_source = 'ddc.vim'
+# # 候補の一覧をマッチした順・すでに入力されている順でソートする #
+# [[plugins]]
+# repo = 'Shougo/ddc-sorter_rank'
+# on_source = 'ddc.vim'
 
-# language server #
-[[plugins]]
-repo = 'Shougo/ddc-nvim-lsp'
-on_source = 'ddc.vim'
+# # language server #
+# [[plugins]]
+# repo = 'Shougo/ddc-nvim-lsp'
+# on_source = 'ddc.vim'
+
+# lsp
+# [[plugins]]
+# repo = 'neovim/nvim-lspconfig'
+# on_event = 'BufEnter'
+# hook_source = '''
+# lua << EOF
+# local lsp_installer = require("nvim-lsp-installer")
+# lsp_installer.on_server_ready(function(server)
+#   local opts = {}
+#   server:setup(opts)
+#   vim.cmd [[ do User LspAttachBuffers ]]
+# end)
+# EOF
+# '''
+
+# [[plugins]]
+# repo = 'williamboman/nvim-lsp-installer'
+# on_source = 'nvim-lspconfig'
 
 # HTML closetag #
 [[plugins]]
@@ -83,79 +99,20 @@ hook_add = '''
 source ~/.config/nvim/plugins/closetag.rc.vim
 '''
 
-# filer #
+# fzf
 [[plugins]]
-repo = 'Shougo/ddu.vim'
-depends = ['denops.vim']
-hook_source = '''
-call ddu#custom#patch_global({
-\	'ui': 'filer',
-\	'sources': [{'name': 'file', 'params': {}}],
-\	'sourceOptions': {
-\		'_': {
-\			'columns': ['filename'],
-\		},
-\	},
-\	'kindOptions': {
-\		'file': {
-\			'defaultAction': 'open',
-\		},
-\	},
-\})
-
-autocmd FileType ddu-filer call s:ddu_my_settings()
-
-function! s:ddu_my_settings() abort
-	nnoremap <buffer><silent> <CR>
-	\	<Cmd>call ddu#ui#filer#do_action('itemAction')<CR>
-	nnoremap <buffer><silent> <Space>
-	\	<Cmd>call ddu#ui#filer#do_action('toggleSelectItem')<CR>
-	nnoremap <buffer><silent> q
-	\	<Cmd>call ddu#ui#filer#do_action('quit')<CR>
-endfunction
-
-" startup command
-nmap <silent><C-f> <Cmd>call ddu#start({})<CR>
-'''
+repo = 'nvim-telescope/telescope.nvim'
 
 [[plugins]]
-repo = 'Shougo/ddu-ui-filer'
-on_source = 'ddu.vim'
+repo = 'nvim-lua/plenary.nvim'
+on_source = 'telescope.nvim'
 
 [[plugins]]
-repo = 'Shougo/ddu-source-file'
-on_source = 'ddu.vim'
+repo = 'kyazdani42/nvim-web-devicons'
+on_source = 'telescope.nvim'
 
 [[plugins]]
-repo = 'Shougo/ddu-kind-file'
-on_source = 'ddu.vim'
-
-[[plugins]]
-repo = 'Shougo/ddu-column-filename'
-on_source = 'ddu.vim'
-
-# fzf #
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-hook_add = '''
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20'
-let g:ctrlp_show_hidden = 1
-nnoremap <C-p> :CtrlP<CR>
-'''
-
-# git #
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = '''
-nnoremap [fugitive] <Nop>
-nmap <space>g [fugitive]
-nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
-nnoremap <silent> [fugitive]a :Gwrite<CR>
-nnoremap <silent> [fugitive]c :Gcommit-v<CR>
-nnoremap <silent> [fugitive]b :Gblame<CR>
-nnoremap <silent> [fugitive]d :Gdiff<CR>
-nnoremap <silent> [fugitive]m :Gmerge<CR>
-'''
-
-# markdown
+repo = 'neoclide/coc.nvim'
+source = 'release'
+build = 'coc#util#install()'
 

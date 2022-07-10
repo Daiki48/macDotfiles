@@ -56,9 +56,6 @@ hook_add = '''
 map ;j <Plug>(jumpcursor-jump)
 '''
 
-# Pmenu color edit #
-[[plugins]]
-repo = 'Daiki48/hi-popmenu.vim'
-
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+
