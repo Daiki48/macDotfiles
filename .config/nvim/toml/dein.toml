@@ -58,4 +58,3 @@ map ;j <Plug>(jumpcursor-jump)
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-

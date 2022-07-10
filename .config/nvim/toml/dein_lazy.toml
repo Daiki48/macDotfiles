@@ -25,72 +25,39 @@ on_source = 'fern.vim'
 
 [[plugins]]
 repo = 'lambdalisue/fern-git-status.vim'
+on_source = 'fern.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+on_source = 'fern.vim'
+hook_source = '''
+let g:fern#renderer='nerdfont'
+'''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+on_source = 'fern.vim'
+hook_source = '''
+set encoding=utf8
+set guifont=Hack_Nerd_Font:h15
+'''
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_source = '''
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+'''
 
 # 初めての自作プラグイン #
 [[plugins]]
 repo = 'Daiki48/hello-daiki'
-
-# 補完関係 #
-# [[plugins]]
-# repo = 'Shougo/ddc.vim'
-# on_event = 'InsertEnter'
-# depends = ['denops.vim']
-# hook_source = '''
-# call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
-# call ddc#custom#patch_global('sourceOptions', {
-#   \ '_': {
-#     \ 'matchers': ['matcher_head'],
-#     \ 'sorters': ['sorter_rank']
-#   \ },
-#   \ 'around': {
-#     \ 'mark': 'A'
-#   \ }, 
-#   \ 'nvim-lsp': {
-#     \ 'mark': 'L',
-#     \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*'
-#   \ },
-# \ })
-# call ddc#enable()
-# '''
-
-# # 現在の行の周辺の単語を候補として抽出してくれる #
-# [[plugins]]
-# repo = 'Shougo/ddc-around'
-# on_source = 'ddc.vim'
-
-# # 入力中の文字列に基づいて候補から絞り込みを行う #
-# [[plugins]]
-# repo = 'Shougo/ddc-matcher_head'
-# on_source = 'ddc.vim'
-
-# # 候補の一覧をマッチした順・すでに入力されている順でソートする #
-# [[plugins]]
-# repo = 'Shougo/ddc-sorter_rank'
-# on_source = 'ddc.vim'
-
-# # language server #
-# [[plugins]]
-# repo = 'Shougo/ddc-nvim-lsp'
-# on_source = 'ddc.vim'
-
-# lsp
-# [[plugins]]
-# repo = 'neovim/nvim-lspconfig'
-# on_event = 'BufEnter'
-# hook_source = '''
-# lua << EOF
-# local lsp_installer = require("nvim-lsp-installer")
-# lsp_installer.on_server_ready(function(server)
-#   local opts = {}
-#   server:setup(opts)
-#   vim.cmd [[ do User LspAttachBuffers ]]
-# end)
-# EOF
-# '''
-
-# [[plugins]]
-# repo = 'williamboman/nvim-lsp-installer'
-# on_source = 'nvim-lspconfig'
 
 # HTML closetag #
 [[plugins]]
