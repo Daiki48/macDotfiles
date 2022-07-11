@@ -13,3 +13,5 @@ end
 
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
+set -gx PATH "$HOME/tools/lua-language-server/bin/macOS:$PATH"
+
