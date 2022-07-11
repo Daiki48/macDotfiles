@@ -47,12 +47,12 @@ end
 -- leave insert
 keymap('i', 'jk', '<esc>', { noremap = true })
 -- cursor move
-api.nvim_set_keymap('n', '<S-j>', '5j', { noremap = true, silent = true })
-api.nvim_set_keymap('n', '<S-k>', '5k', { noremap = true, silent = true })
-api.nvim_set_keymap('v', '<S-j>', '5j', { noremap = true, silent = true })
-api.nvim_set_keymap('v', '<S-k>', '5k', { noremap = true, silent = true })
+keymap('n', '<S-j>', '5j', { noremap = true, silent = true })
+keymap('n', '<S-k>', '5k', { noremap = true, silent = true })
+keymap('v', '<S-j>', '5j', { noremap = true, silent = true })
+keymap('v', '<S-k>', '5k', { noremap = true, silent = true })
 -- save file
-api.nvim_set_keymap('n', '<leader>w', '<cmd>update<cr>', { noremap = true })
+keymap('n', '<leader>w', '<cmd>update<cr>', { noremap = true })
 
 -- insertモードを離れると日本語入力をオフ
 cmd('augroup fcitx')
@@ -120,4 +120,5 @@ keymap('n', 'ff', '<cmd>Telescope find_files<cr>', { noremap = true })
 keymap('n', 'fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
 keymap('n', 'fb', '<cmd>Telescope buffers<cr>', { noremap = true })
 keymap('n', 'fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
+
 

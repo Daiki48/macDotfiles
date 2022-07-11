@@ -58,3 +58,6 @@ map ;j <Plug>(jumpcursor-jump)
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'neovim/nvim-lsp'
