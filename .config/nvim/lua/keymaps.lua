@@ -21,3 +21,7 @@ keymap('n', 'ff', '<cmd>Telescope find_files<cr>', { noremap = true })
 keymap('n', 'fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
 keymap('n', 'fb', '<cmd>Telescope buffers<cr>', { noremap = true })
 keymap('n', 'fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
+
+keymap('n', 'pm', '<cmd>PreviewMarkdown<cr>', { noremap = true })
+keymap('n', 'ps', '<cmd>PreviewMarkdownStop<cr>', { noremap = true })
+keymap('n', 'pt', '<cmd>PreviewMarkdownToggle<cr>', { noremap = true })

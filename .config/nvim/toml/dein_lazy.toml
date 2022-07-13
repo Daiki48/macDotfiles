@@ -114,3 +114,6 @@ on_source = 'ddc.vim'
 repo = 'Shougo/ddc-nvim-lsp'
 on_source = 'ddc.vim'
 
+[[plugins]]
+repo = 'kat0h/bufpreview.vim'
+on_ft = ['markdown']
