@@ -1,4 +1,3 @@
-local api = vim.api
 local fn = vim.fn
 
 -- dein.vim init settings

@@ -1,5 +1,4 @@
-local api = vim.api
-local keymap = api.nvim_set_keymap
+local keymap = vim.api.nvim_set_keymap
 
 -- leave insert
 keymap('i', 'jk', '<esc>', { noremap = true })
