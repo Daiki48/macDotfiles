@@ -97,8 +97,11 @@ call ddc#custom#patch_global('sourceOptions', {
 \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
 \ })
 call ddc#enable()
+imap <expr><CR> pumvisible() ? pum#close() : "<CR>"
 inoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
 inoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
+inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
 '''
 
 [[plugins]]
