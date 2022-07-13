@@ -1,5 +1,5 @@
-local buf = vim.lsp.buf
-local keymap = vim.api.nvim_set_keymap
+-- local buf = vim.lsp.buf
+-- local keymap = vim.api.nvim_set_keymap
 
 local nvim_lsp = require('lspconfig')
 local lsp_installer = require("nvim-lsp-installer")

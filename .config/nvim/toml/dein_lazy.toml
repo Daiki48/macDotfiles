@@ -85,6 +85,7 @@ on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_source = '''
 call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
+call ddc#custom#patch_global('completionMenu', 'pum.vim')
 call ddc#custom#patch_global('sourceOptions', {
 \ '_': {
 \   'matchers': ['matcher_head'],
@@ -96,6 +97,8 @@ call ddc#custom#patch_global('sourceOptions', {
 \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
 \ })
 call ddc#enable()
+inoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
+inoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
 '''
 
 [[plugins]]
@@ -115,5 +118,11 @@ repo = 'Shougo/ddc-nvim-lsp'
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo = 'Shougo/pum.vim'
+on_source = 'ddc.vim'
+
+# markdown preview
+[[plugins]]
 repo = 'kat0h/bufpreview.vim'
 on_ft = ['markdown']
+
