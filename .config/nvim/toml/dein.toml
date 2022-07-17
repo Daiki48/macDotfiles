@@ -21,9 +21,6 @@ repo = 'hoob3rt/lualine.nvim'
 repo = 'tpope/vim-commentary'
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
@@ -33,13 +30,6 @@ on_ft = ['javascript', 'typescript', 'vue', 'html', 'tsx', 'css', 'scss', 'json'
 hook_add = '''
 source ~/.config/nvim/plugins/vim-prettier.rc.vim
 '''
-
-[[plugins]]
-repo = 'vim-syntastic/syntastic'
-hook_add = '''
-source ~/.config/nvim/plugins/syntastic.rc.vim
-'''
-
 
 # 縦移動 #
 [[plugins]]
@@ -65,3 +55,8 @@ on_source = 'nvim-lspconfig'
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
 
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+source ~/.config/nvim/plugins/ale.rc.vim
+'''

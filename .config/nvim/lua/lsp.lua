@@ -46,13 +46,13 @@ lsp_installer.on_server_ready(function(server)
     }
   end
 
-  opts.on_attach = function(_, bufnr)
-    local bufopts = { noremap = true, silent = true }
-    -- keymap(bufnr, 'n', 'gi', buf.implementation, bufopts)
-    -- keymap(bufnr, 'n', 'gtD', buf.type_definition, bufopts)
-    -- keymap(bufnr, 'n', 'grf', buf.references, bufopts)
-    -- keymap(bufnr, 'n', '<space>p', buf.format, bufopts)
-  end
+  -- opts.on_attach = function(_, bufnr)
+  --   local bufopts = { noremap = true, silent = true }
+  --   -- keymap(bufnr, 'n', 'gi', buf.implementation, bufopts)
+  --   -- keymap(bufnr, 'n', 'gtD', buf.type_definition, bufopts)
+  --   -- keymap(bufnr, 'n', 'grf', buf.references, bufopts)
+  --   -- keymap(bufnr, 'n', '<space>p', buf.format, bufopts)
+  -- end
 
   server:setup(opts)
   vim.cmd [[ do User LspAttachBuffers ]]
