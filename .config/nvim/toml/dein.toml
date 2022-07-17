@@ -61,3 +61,7 @@ repo = 'neovim/nvim-lspconfig'
 repo = 'williamboman/nvim-lsp-installer'
 on_source = 'nvim-lspconfig'
 
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
+
