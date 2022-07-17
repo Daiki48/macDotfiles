@@ -97,7 +97,6 @@ call ddc#custom#patch_global('sourceOptions', {
 \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
 \ })
 call ddc#enable()
-imap <expr><CR> pumvisible() ? pum#close() : "<CR>"
 inoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
 inoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
 inoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
@@ -128,4 +127,21 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'kat0h/bufpreview.vim'
 on_ft = ['markdown']
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_event = 'InsertEnter'
+hook_source = '''
+let s:rules += [
+\ { 'filetype': ['typescript', 'typescriptreact'], 'char': '>', 'at': '\s([a-zA-Z, ]*\%#)',            'input': '<Left><C-o>f)<Right>a=> {}<Esc>',                 },
+\ { 'filetype': ['typescript', 'typescriptreact'], 'char': '>', 'at': '\s([a-zA-Z]\+\%#)',             'input': '<Right> => {}<Left>',              'priority': 10 },
+\ { 'filetype': ['typescript', 'typescriptreact'], 'char': '>', 'at': '[a-z]((.*\%#.*))',              'input': '<Left><C-o>f)a => {}<Esc>',                       },
+\ { 'filetype': ['typescript', 'typescriptreact'], 'char': '>', 'at': '[a-z]([a-zA-Z]\+\%#)',          'input': ' => {}<Left>',                                    },
+\ { 'filetype': ['typescript', 'typescriptreact'], 'char': '>', 'at': '(.*[a-zA-Z]\+<[a-zA-Z]\+>\%#)', 'input': '<Left><C-o>f)<Right>a=> {}<Left>',                },
+\ ]
+call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
+call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
+call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+'''
+
 
