@@ -23,13 +23,13 @@ repo = 'tpope/vim-commentary'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-[[plugins]]
-repo = 'prettier/vim-prettier'
-build = 'npm install'
-on_ft = ['javascript', 'typescript', 'vue', 'html', 'tsx', 'css', 'scss', 'json', 'markdown']
-hook_add = '''
-source ~/.config/nvim/plugins/vim-prettier.rc.vim
-'''
+# [[plugins]]
+# repo = 'prettier/vim-prettier'
+# build = 'npm install'
+# on_ft = ['javascript', 'typescript', 'vue', 'html', 'tsx', 'css', 'scss', 'json', 'markdown']
+# hook_add = '''
+# source ~/.config/nvim/plugins/vim-prettier.rc.vim
+# '''
 
 # 縦移動 #
 [[plugins]]
@@ -56,7 +56,12 @@ repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
 
 [[plugins]]
+repo = 'yioneko/nvim-yati'
+on_source = 'nvim-treesitter/nvim-treesitter'
+
+[[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
 source ~/.config/nvim/plugins/ale.rc.vim
 '''
+
