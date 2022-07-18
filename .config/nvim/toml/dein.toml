@@ -25,7 +25,7 @@ repo = 'tpope/vim-surround'
 
 # [[plugins]]
 # repo = 'prettier/vim-prettier'
-# build = 'npm install'
+# build = 'yarn install'
 # on_ft = ['javascript', 'typescript', 'vue', 'html', 'tsx', 'css', 'scss', 'json', 'markdown']
 # hook_add = '''
 # source ~/.config/nvim/plugins/vim-prettier.rc.vim

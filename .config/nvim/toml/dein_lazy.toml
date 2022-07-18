@@ -84,18 +84,22 @@ repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_source = '''
-call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
+call ddc#custom#patch_global('sources', ['around', 'nvim-lsp'])
 call ddc#custom#patch_global('completionMenu', 'pum.vim')
 call ddc#custom#patch_global('sourceOptions', {
 \ '_': {
-\   'matchers': ['matcher_head'],
-\   'sorters': ['sorter_rank']},
+\   'matchers': ['matcher_head', 'matcher_fuzzy'],
+\   'sorters': ['sorter_rank', 'sorter_fuzzy'], 
+\   'converters': ['converter_fuzzy'],
+\ },
 \ 'around': {
-\   'mark': 'around' },
+\   'mark': 'around' 
+\ },
 \ 'nvim-lsp': {
 \   'mark': 'lsp',
 \   'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
-\ })
+\ },
+\)
 call ddc#enable()
 inoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
 inoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
@@ -121,6 +125,10 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'tani/ddc-fuzzy'
 on_source = 'ddc.vim'
 
 # markdown preview
