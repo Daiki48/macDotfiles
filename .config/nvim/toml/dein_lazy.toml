@@ -3,6 +3,7 @@
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
 let g:fern#default_hidden=1
+let g:fern_disable_startup_warnings=1
 nnoremap <silent><C-n> :Fern .<CR>
 nmap <silent> b <BS><CR>
 
