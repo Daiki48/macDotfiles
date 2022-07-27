@@ -1,22 +1,22 @@
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 "
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx,*.ts,*.js'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx,*.ts,*.js,*.rs'
 
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.js,*.ts'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.js,*.ts,*.rs'
 
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
 "
-let g:closetag_filetypes = 'html,xhtml,phtml,jsx,tsx,js,ts'
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,tsx,js,ts,rs'
 
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx,js,ts'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx,js,ts,rs'
 
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
