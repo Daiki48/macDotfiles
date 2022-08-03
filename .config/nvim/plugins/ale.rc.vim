@@ -18,8 +18,8 @@ let g:ale_sign_column_always = 1
 let g:ale_fix_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_typescript_prettier_use_local_config = 1
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
-let g:ale_typescript_prettier_options = '--single-quote --trailing-comma all'
+" let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
+" let g:ale_typescript_prettier_options = '--single-quote --trailing-comma all'
 
 nmap <silent> <C-w>j <Plug>(ale_next_wrap)
 nmap <silent> <C-w>k <Plug>(ale_previous_wrap)

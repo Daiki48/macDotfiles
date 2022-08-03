@@ -1,6 +1,3 @@
-
-
-
 -- lualine
 local lualine = require('lualine')
 

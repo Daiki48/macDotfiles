@@ -6,4 +6,5 @@ require('autocmd')      -- autocommand
 require('setlualine')   -- lualine settings
 require('lsp')   	-- lsp settings
 require('treesitterconfig')   	-- treesitter settings
+require('ts-autotag')   	-- treesitter html tag
 
