@@ -72,3 +72,7 @@ repo = 'airblade/vim-gitgutter'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+# brackets
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
