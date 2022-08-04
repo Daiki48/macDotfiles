@@ -47,10 +47,6 @@ repo = 'neovim/nvim-lsp'
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 
-# [[plugins]]
-# repo = 'williamboman/nvim-lsp-installer'
-# on_source = 'nvim-lspconfig'
-
 [[plugins]]
 repo = 'williamboman/mason.nvim'
 on_source = 'nvim-lspconfig'
@@ -71,8 +67,8 @@ on_source = 'nvim-treesitter/nvim-treesitter'
 repo = 'windwp/nvim-ts-autotag'
 
 [[plugins]]
-repo = 'dense-analysis/ale'
-# hook_add = '''
-# source ~/.config/nvim/plugins/ale.rc.vim
-# '''
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 
