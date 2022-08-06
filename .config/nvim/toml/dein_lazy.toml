@@ -148,4 +148,3 @@ on_source = 'ddc.vim'
 repo = 'kat0h/bufpreview.vim'
 on_ft = ['markdown']
 
-

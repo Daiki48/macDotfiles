@@ -74,5 +74,9 @@ repo = 'tpope/vim-fugitive'
 
 # brackets
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
+repo = 'windwp/nvim-autopairs'
+
+[[plugins]]
+repo = 'rcarriga/nvim-notify'
+
 

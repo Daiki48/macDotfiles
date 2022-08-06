@@ -6,9 +6,9 @@ vim.o.splitright = true
 vim.o.termguicolors = true
 vim.o.hidden = true
 vim.o.updatetime = 300
-vim.bo.expandtab = true
-vim.bo.autoindent = true
-vim.bo.smartindent = true
+vim.bo.expandtab = false
+vim.bo.autoindent = false
+vim.bo.smartindent = false
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.bo.autoread = true
@@ -17,4 +17,3 @@ vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
 vim.wo.cursorline = true
 vim.cmd 'set clipboard+=unnamedplus'
-
