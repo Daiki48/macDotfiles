@@ -148,3 +148,10 @@ on_source = 'ddc.vim'
 repo = 'kat0h/bufpreview.vim'
 on_ft = ['markdown']
 
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+
