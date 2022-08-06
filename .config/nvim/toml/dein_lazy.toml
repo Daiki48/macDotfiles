@@ -154,4 +154,10 @@ repo = 'wsdjeg/dein-ui.vim'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
+[[plugins]]
+repo = 'VonHeikemen/fine-cmdline.nvim'
+on_source = 'nui.nvim'
+hook_add = '''
+nnoremap : <cmd>FineCmdline<CR>
+'''
 

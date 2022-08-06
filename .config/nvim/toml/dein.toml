@@ -73,4 +73,7 @@ repo = 'windwp/nvim-autopairs'
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
 
+[[plugins]]
+repo = 'MunifTanjim/nui.nvim'
+
 
