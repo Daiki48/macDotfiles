@@ -16,9 +16,11 @@ if (fn['dein#load_state'](dein_dir) == 1) then
 	local rc_dir = fn.expand('~/.config/nvim/toml')
 	local toml = rc_dir..'/dein.toml'
 	local lazy_toml = rc_dir..'/dein_lazy.toml'
+	local ddc_toml = rc_dir..'/ddc.toml'
 	fn['dein#begin'](dein_dir)
 	fn['dein#load_toml'](toml, { lazy = 0 })
 	fn['dein#load_toml'](lazy_toml, { lazy = 1 })
+	fn['dein#load_toml'](ddc_toml, { lazy = 1 })
 	fn['dein#end']()
 	fn['dein#save_state']()
 end

@@ -1,0 +1,220 @@
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+on_event = ['InsertEnter', 'CmdlineEnter']
+depends = ['denops.vim']
+hook_source = '''
+call ddc#custom#patch_global('completionMenu', 'pum.vim')
+call ddc#custom#patch_global('sources', ['around', 'nvim-lsp', 'file', 'buffer'])
+call ddc#custom#patch_global('sourceOptions', {
+\ '_': {
+\   'matchers': ['matcher_fuzzy', 'matcher_head'],
+\   'sorters': ['sorter_fuzzy', 'sorter_rank'], 
+\   'converters': ['converter_remove_overlap', 'converter_truncate_abbr'],
+\ },
+\ 'around': {
+\   'mark': '[around]', 
+\   'matchers': ['matcher_head', 'matcher_length'],
+\ },
+\ 'nvim-lsp': {
+\   'mark': '[lsp]',
+\   'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+\ },
+\ 'buffer': {
+\   'mark': '[buffer]',
+\   'matchers': ['matcher_head', 'matcher_length'],
+\   'minAutoCompleteLength': 1,
+\ },
+\ 'cmdline': {
+\   'mark': '[cmdline]',
+\   'forceCompletionPattern': '\S/\S*',
+\ },
+\ 'cmdline-history': {
+\   'mark': '[cmd-history]',
+\   'sorters': [],
+\ },
+\ 'file': {
+\   'mark': '[file]',
+\   'forceCompletionPattern': '\S/\S*',
+\   'minAutoCompleteLength': 1,
+\   'isVolatile': v:true,
+\   'sorters': [],
+\ },
+\ 'rg': {
+\   'mark': '[rg]',
+\   'minAutoCompleteLength': 1,
+\   'matchers': ['matcher_head', 'matcher_length'],
+\ },
+\})
+
+call ddc#custom#patch_global('sourceParams', {
+\ 'around': {'maxSize': 500},
+\ 'limitBytes': 5000000,
+\ 'fromAltBuf': v:false,
+\ 'forceCollect': v:false,
+\ 'nvim-lsp': {'kindLabels': {
+\    "Text": " Text",
+\    "Method": " Method",
+\    "Function": " Function",
+\    "Constructor": " Constructor",
+\    "Field": "ﰠ Field",
+\    "Variable": " Variable",
+\    "Class": "ﴯ Class",
+\    "Interface": " Interface",
+\    "Module": " Module",
+\    "Property": "ﰠ Property",
+\    "Unit": "塞 Unit",
+\    "Value": " Value",
+\    "Enum": " Enum",
+\    "Keyword": " Keyword",
+\    "Snippet": " Snippet",
+\    "Color": " Color",
+\    "File": " File",
+\    "Reference": " Reference",
+\    "Folder": " Folder",
+\    "EnumMember": " EnumMember",
+\    "Constant": " Constant",
+\    "Struct": "פּ Struct",
+\    "Event": " Event",
+\    "Operator": " Operator",
+\    "TypeParameter": "TypeParameter"
+\ }},
+\ })
+
+call ddc#custom#patch_global('autoCompleteEvents', [
+    \ 'InsertEnter', 'TextChangedI', 'TextChangedP',
+    \ 'CmdlineEnter', 'CmdlineChanged',
+    \ ])
+" {{{
+cnoremap <expr> <Tab>
+  \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+  \ ddc#manual_complete()
+cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+cnoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+cnoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+
+augroup MyAutoCmd
+  autocmd!
+  autocmd CmdlineEnter * call CommandlinePre()
+  autocmd CmdlineLeave * call CommandlinePost()
+  autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
+augroup End
+
+
+function! CommandlinePre() abort
+  call denops#plugin#wait('ddc')
+
+  " Overwrite sources
+  let current = ddc#custom#get_current()
+  if exists('s:in_cmdline') && s:in_cmdline
+    return
+  endif
+
+  let s:prev_buffer_sources = current
+  if getcmdtype() == '/'
+    call ddc#custom#patch_buffer('sources', ['buffer', 'cmdline-history'])
+  elseif getcmdtype() == '@'
+    call ddc#custom#patch_buffer('sources', ['buffer'])
+  else
+    call ddc#custom#patch_buffer('sources', ['cmdline','cmdline-history', 'buffer'])
+  endif
+  let s:in_cmdline = v:true
+
+  " Enable command line completion
+  call ddc#enable_cmdline_completion()
+endfunction
+
+function! CommandlinePost() abort
+  " Restore sources
+  call ddc#custom#set_buffer(s:prev_buffer_sources)
+  let s:in_cmdline = v:false
+endfunction
+
+call ddc#enable()
+call popup_preview#enable()
+call signature_help#enable()
+
+inoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
+inoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
+inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
+
+# [[plugins]]
+# repo = 'Shougo/ddc-nextword'
+# on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_length'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'tani/ddc-fuzzy'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'matsui54/denops-signature_help'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-converter_remove_overlap'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-converter_truncate_abbr'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline-history'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-rg'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-file'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'matsui54/ddc-buffer'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+on_event = 'BufRead'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+
