@@ -79,4 +79,9 @@ repo = 'rcarriga/nvim-notify'
 [[plugins]]
 repo = 'MunifTanjim/nui.nvim'
 
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
 
