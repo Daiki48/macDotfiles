@@ -1,6 +1,7 @@
 # 初めての自作プラグイン #
 [[plugins]]
 repo = 'Daiki48/hello-daiki'
+on_cmd = 'DenopsDaiki'
 
 # HTML closetag #
 [[plugins]]
@@ -71,4 +72,8 @@ hook_add = '''
 map ;j <Plug>(jumpcursor-jump)
 '''
 
+[[plugins]]
+repo = 'norcalli/nvim-colorizer.lua'
+on_event = 'FileType'
+hook_source = '''lua require 'colorizer'.setup()'''
 

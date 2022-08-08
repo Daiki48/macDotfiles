@@ -1,4 +1,3 @@
-
 require('options')      -- neovim init setting
 require('dein')         -- plugins manager
 require('keymaps')      -- keymapping

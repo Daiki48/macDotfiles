@@ -18,3 +18,4 @@ vim.wo.signcolumn = 'yes'
 vim.wo.cursorline = true
 vim.cmd 'set clipboard+=unnamedplus'
 vim.cmd 'set wildoptions=pum'
+vim.cmd[[colorscheme coolnessFlair]]
