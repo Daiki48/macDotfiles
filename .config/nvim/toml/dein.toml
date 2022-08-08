@@ -53,25 +53,10 @@ repo = 'williamboman/mason-lspconfig.nvim'
 on_source = 'nvim-lspconfig'
 
 [[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-merged = 0
-
-[[plugins]]
-repo = 'yioneko/nvim-yati'
-on_source = 'nvim-treesitter/nvim-treesitter'
-
-[[plugins]]
-repo = 'windwp/nvim-ts-autotag'
-
-[[plugins]]
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-
-# brackets
-[[plugins]]
-repo = 'windwp/nvim-autopairs'
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'

@@ -36,3 +36,24 @@ hook_add = '''
 nnoremap / <cmd>SearchBoxIncSearch<CR>
 '''
 
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
+on_event = 'BufRead'
+hook_post_update = 'TSUpdate'
+hook_source = '''lua require('treesitterconfig')'''
+
+[[plugins]]
+repo = 'yioneko/nvim-yati'
+on_source = 'nvim-treesitter'
+
+[[plugins]]
+repo = 'windwp/nvim-ts-autotag'
+on_source = 'nvim-treesitter'
+
+# brackets
+[[plugins]]
+repo = 'windwp/nvim-autopairs'
+on_event = ['InsertEnter']
+hook_post_source = '''lua require('autopairs')'''
+
