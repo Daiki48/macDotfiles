@@ -8,6 +8,8 @@ dotfiles for mac
   - nvim
   - fish
   - wezterm
+- .vim
+- .vimrc
 
 # Install
 
@@ -42,7 +44,7 @@ First, check the current shell.
 $ echo $PATH
 ```
 
-Change the default shell is fish. 
+Change the default shell is fish.
 
 ```
 $ brew install fish
