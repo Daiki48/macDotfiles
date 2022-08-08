@@ -1,0 +1,59 @@
+# filer #
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+hook_add = '''
+let g:fern#default_hidden=1
+let g:fern_disable_startup_warnings=1
+nnoremap <silent><C-n> :Fern .<CR>
+nmap <silent> b <BS><CR>
+
+function! s:fern_settings() abort
+  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+  nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+  nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+endfunction
+
+augroup fern-settings
+  autocmd!
+  autocmd FileType fern call s:fern_settings()
+augroup END
+'''
+
+[[plugins]]
+repo = 'yuki-yano/fern-preview.vim'
+on_source = 'fern.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+on_source = 'fern.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+on_source = 'fern.vim'
+hook_source = '''
+let g:fern#renderer='nerdfont'
+'''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+on_source = 'fern.vim'
+hook_source = '''
+set encoding=utf8
+set guifont=Hack_Nerd_Font:h15
+'''
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_source = '''
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+'''
+
+

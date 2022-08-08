@@ -17,10 +17,14 @@ if (fn['dein#load_state'](dein_dir) == 1) then
 	local toml = rc_dir..'/dein.toml'
 	local lazy_toml = rc_dir..'/dein_lazy.toml'
 	local ddc_toml = rc_dir..'/ddc.toml'
+	local ddu_toml = rc_dir..'/ddu.toml'
+	local fern_toml = rc_dir..'/fern.toml'
 	fn['dein#begin'](dein_dir)
 	fn['dein#load_toml'](toml, { lazy = 0 })
 	fn['dein#load_toml'](lazy_toml, { lazy = 1 })
 	fn['dein#load_toml'](ddc_toml, { lazy = 1 })
+	fn['dein#load_toml'](ddu_toml, { lazy = 1 })
+	fn['dein#load_toml'](fern_toml, { lazy = 1 })
 	fn['dein#end']()
 	fn['dein#save_state']()
 end
