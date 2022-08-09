@@ -77,7 +77,23 @@ lualine.setup {
 					},
 				},
 			},
-      'diagnostics'
+			{
+				'diagnostics',
+				diagnostics_color = {
+					error = {
+						fg = "#8f3231"
+					},
+					warn = {
+						fg = "#C7A252"
+					},
+					info = {
+						fg = "#E6D2C9"
+					},
+					hint = {
+						fg = "#717375"
+					},
+				},
+			}
     },
     lualine_c = {
       {
