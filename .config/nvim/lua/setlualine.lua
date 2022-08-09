@@ -15,7 +15,20 @@ lualine.setup {
     },
     lualine_b = {
       'branch',
-      'diff',
+			{
+				'diff',
+				diff_color = {
+					added = {
+						fg = "#DA523A"
+					},
+					modified = {
+						fg = "#E8C473"
+					},
+					removed = {
+						fg = "#659AD2"
+					},
+				},
+			},
       'diagnostics'
     },
     lualine_c = {
