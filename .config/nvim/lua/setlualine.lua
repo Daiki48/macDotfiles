@@ -1,6 +1,54 @@
 -- lualine
 local lualine = require('lualine')
 
+-- vim_mode select function
+local function vim_mode()
+  local map = {
+    ['n'] = 'N',
+    ['no'] = 'O',
+    ['nov'] = 'O',
+    ['noV'] = 'O',
+    ['no\22'] = 'O',
+    ['niI'] = 'N',
+    ['niR'] = 'N',
+    ['niV'] = 'N',
+    ['nt'] = 'N',
+    ['v'] = 'V',
+    ['vs'] = 'V',
+    ['V'] = 'L',
+    ['Vs'] = 'L',
+    ['\22'] = 'V',
+    ['\22s'] = 'VB',
+    ['s'] = 'S',
+    ['S'] = 'SL',
+    ['\19'] = 'SB',
+    ['i'] = 'I',
+    ['ic'] = 'I',
+    ['ix'] = 'I',
+    ['R'] = 'R',
+    ['Rc'] = 'R',
+    ['Rx'] = 'R',
+    ['Rv'] = 'VR',
+    ['Rvc'] = 'VR',
+    ['Rvx'] = 'VR',
+    ['c'] = 'C',
+    ['cv'] = 'X',
+    ['ce'] = 'X',
+    ['r'] = 'P',
+    ['rm'] = 'M',
+    ['r?'] = 'F',
+    ['!'] = 'S',
+    ['t'] = 'T',
+  }
+  local mode_code = vim.api.nvim_get_mode().mode
+  local mode_sign = map[mode_code]
+  if mode_sign == nil then
+    return mode_code
+  else
+    return mode_sign
+  end
+end
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -11,7 +59,7 @@ lualine.setup {
   },
   sections = {
     lualine_a = {
-      'mode',
+			{ vim_mode }
     },
     lualine_b = {
       'branch',
@@ -36,7 +84,7 @@ lualine.setup {
         'filename',
       }
     },
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {'encoding', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
