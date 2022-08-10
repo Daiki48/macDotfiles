@@ -93,6 +93,7 @@ let g:vimhelpgenerator_author = 'Author  : Daiki Nakashima <daiki48.engineer at 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = 'InsertEnter'
+hook_post_source = '''lua require('lsp')'''
 
 [[plugins]]
 repo = 'williamboman/mason.nvim'
