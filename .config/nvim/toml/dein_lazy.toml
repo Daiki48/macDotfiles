@@ -6,6 +6,7 @@ on_cmd = 'DenopsDaiki'
 # HTML closetag #
 [[plugins]]
 repo = 'alvan/vim-closetag'
+on_event = 'InsertEnter'
 hook_add = '''
 source ~/.config/nvim/plugins/closetag.rc.vim
 '''
@@ -77,3 +78,14 @@ repo = 'norcalli/nvim-colorizer.lua'
 on_event = 'FileType'
 hook_source = '''lua require 'colorizer'.setup()'''
 
+[[plugins]]
+repo = 'LeafCage/vimhelpgenerator'
+on_cmd = 'VimHelpGenerator'
+hook_add = '''
+let g:vimhelpgenerator_defaultlanguage = "en"
+let g:vimhelpgenerator_content = {
+	\ 'contents': 1, 'introduction': 1, 'usage': 1, 'interface': 1,
+	\ 'variables': 1, 'commands': 1, 'key-mappings': 1, 'functions': 1,
+	\ 'setting': 1, 'todo': 0, 'changelog': 1,}
+let g:vimhelpgenerator_author = 'Author  : Daiki Nakashima <daiki48.engineer at gmail.com>'
+'''
