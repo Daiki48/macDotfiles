@@ -41,3 +41,5 @@ let g:closetag_shortcut = '>'
 "
 let g:closetag_close_shortcut = '<leader>>'
 
+let g:closetag_enable_react_fragment = 1
+
