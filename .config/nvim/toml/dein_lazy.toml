@@ -4,12 +4,12 @@ repo = 'Daiki48/hello-daiki'
 on_cmd = 'DenopsDaiki'
 
 # HTML closetag #
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_event = 'InsertEnter'
-hook_add = '''
-source ~/.config/nvim/plugins/closetag.rc.vim
-'''
+# [[plugins]]
+# repo = 'alvan/vim-closetag'
+# on_event = 'InsertEnter'
+# hook_add = '''
+# source ~/.config/nvim/plugins/closetag.rc.vim
+# '''
 
 # fzf
 [[plugins]]
@@ -62,7 +62,7 @@ hook_post_source = '''lua require('autopairs')'''
 [[plugins]]
 repo = 'prettier/vim-prettier'
 build = 'yarn install'
-on_ft = ['javascript', 'typescript', 'vue', 'html', 'tsx', 'css', 'scss', 'json', 'markdown']
+on_ft = ['javascript', 'typescript', 'vue', 'html', 'jsx', 'tsx', 'css', 'scss', 'json', 'markdown']
 hook_add = '''
 source ~/.config/nvim/plugins/vim-prettier.rc.vim
 '''
@@ -89,3 +89,17 @@ let g:vimhelpgenerator_content = {
 	\ 'setting': 1, 'todo': 0, 'changelog': 1,}
 let g:vimhelpgenerator_author = 'Author  : Daiki Nakashima <daiki48.engineer at gmail.com>'
 '''
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'williamboman/mason.nvim'
+on_source = 'nvim-lspconfig'
+
+[[plugins]]
+repo = 'williamboman/mason-lspconfig.nvim'
+on_source = 'nvim-lspconfig'
+
+

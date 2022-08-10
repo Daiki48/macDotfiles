@@ -26,16 +26,16 @@ repo = 'vim-denops/denops.vim'
 [[plugins]]
 repo = 'neovim/nvim-lsp'
 
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
+# [[plugins]]
+# repo = 'neovim/nvim-lspconfig'
 
-[[plugins]]
-repo = 'williamboman/mason.nvim'
-on_source = 'nvim-lspconfig'
+# [[plugins]]
+# repo = 'williamboman/mason.nvim'
+# on_source = 'nvim-lspconfig'
 
-[[plugins]]
-repo = 'williamboman/mason-lspconfig.nvim'
-on_source = 'nvim-lspconfig'
+# [[plugins]]
+# repo = 'williamboman/mason-lspconfig.nvim'
+# on_source = 'nvim-lspconfig'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
