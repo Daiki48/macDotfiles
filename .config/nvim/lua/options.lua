@@ -10,7 +10,6 @@ vim.opt.cmdheight = 1
 vim.opt.inccommand = 'split'
 vim.opt.breakindent = true
 
-
 vim.o.helplang = 'ja,en'
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -30,5 +29,4 @@ vim.wo.signcolumn = 'yes'
 vim.o.cursorline = true
 vim.cmd 'set clipboard+=unnamedplus'
 vim.cmd 'set wildoptions=pum'
-vim.cmd[[colorscheme coolnessFlair]]
 
