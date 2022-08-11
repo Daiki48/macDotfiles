@@ -2,7 +2,6 @@ local buf = vim.lsp.buf
 -- local keymap = vim.api.nvim_set_keymap
 
 local nvim_lsp = require('lspconfig')
--- local lsp_installer = require("nvim-lsp-installer")
 
 local mason = require('mason')
 
@@ -41,6 +40,4 @@ mason_lspconfig.setup_handlers({ function(server_name)
   nvim_lsp[server_name].setup(opts)
 end})
 
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
 
