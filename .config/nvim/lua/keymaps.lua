@@ -16,13 +16,6 @@ keymap('n', '<C-h>', '<cmd>bprevious<cr>', { noremap = true, silent = true })
 -- keymap('n', '<C-q>', '<cmd>b#<cr><cmd>bd#<cr>', { noremap = true })
 keymap('n', '<C-q>', '<cmd>bd<cr>', { noremap = true })
 
--- telescope command-line
-keymap('n', 'ff', '<cmd>Telescope find_files<cr>', { noremap = true })
-keymap('n', 'fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
-keymap('n', 'fb', '<cmd>Telescope buffers<cr>', { noremap = true })
-keymap('n', 'fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
-keymap('n', 'fo', '<cmd>Telescope oldfiles<cr>', { noremap = true })
-
 -- markdown preview
 keymap('n', 'pm', '<cmd>PreviewMarkdown<cr>', { noremap = true })
 keymap('n', 'ps', '<cmd>PreviewMarkdownStop<cr>', { noremap = true })
