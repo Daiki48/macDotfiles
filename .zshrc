@@ -25,6 +25,6 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
 compinit -u
 
-source /Users/nakashima/.config/broot/launcher/bash/br
+source ~/.config/broot/launcher/bash/br
 
 
