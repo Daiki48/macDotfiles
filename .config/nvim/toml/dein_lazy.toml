@@ -3,14 +3,6 @@
 repo = 'Daiki48/hello-daiki'
 on_cmd = 'DenopsDaiki'
 
-# HTML closetag #
-# [[plugins]]
-# repo = 'alvan/vim-closetag'
-# on_event = 'InsertEnter'
-# hook_add = '''
-# source ~/.config/nvim/plugins/closetag.rc.vim
-# '''
-
 # fzf
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
