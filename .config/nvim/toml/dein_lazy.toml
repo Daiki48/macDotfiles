@@ -14,6 +14,9 @@ on_cmd = 'DenopsDaiki'
 # fzf
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
+depends = 'nvim-web-devicons'
+on_event = 'BufEnter'
+hook_source = '''lua require('setTelescope')'''
 
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
@@ -21,6 +24,10 @@ on_source = 'telescope.nvim'
 
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
+on_source = 'telescope.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-file-browser.nvim'
 on_source = 'telescope.nvim'
 
 # markdown preview
