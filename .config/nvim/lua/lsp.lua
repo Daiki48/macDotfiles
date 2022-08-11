@@ -41,5 +41,6 @@ mason_lspconfig.setup_handlers({ function(server_name)
   nvim_lsp[server_name].setup(opts)
 end})
 
-
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
 
