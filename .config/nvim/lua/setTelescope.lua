@@ -56,7 +56,7 @@ telescope.setup{
 
 require("telescope").load_extension "file_browser"
 
-vim.keymap.set("n", "<space>ff", function()
+vim.keymap.set("n", ";ff", function()
 	builtin.find_files({
 		prompt_prefix = "🔍: ",
 		no_ignore = false,
@@ -65,35 +65,35 @@ vim.keymap.set("n", "<space>ff", function()
 	})
 end)
 
-vim.keymap.set("n", "<space>fg", function()
+vim.keymap.set("n", ";fg", function()
 	builtin.live_grep()
 end)
 
-vim.keymap.set("n", "<space>fb", function()
+vim.keymap.set("n", ";fb", function()
 	builtin.buffers({
 		initial_mode = "normal",
 	})
 end)
 
-vim.keymap.set("n", "<space>fh", function()
+vim.keymap.set("n", ";fh", function()
 	builtin.help_tags({
 		initial_mode = "normal",
 	})
 end)
 
-vim.keymap.set("n", "<space>fr", function()
+vim.keymap.set("n", ";fr", function()
 	builtin.resume({
 		initial_mode = "normal",
 	})
 end)
 
-vim.keymap.set("n", "<space>fd", function()
+vim.keymap.set("n", ";fd", function()
 	builtin.diagnostics({
 		initial_mode = "normal",
 	})
 end)
 
-vim.keymap.set("n", "<space>fj", function()
+vim.keymap.set("n", ";fj", function()
 	telescope.extensions.file_browser.file_browser({
 		prompt_prefix = "🔍: ",
 		path = "%:p:h",
