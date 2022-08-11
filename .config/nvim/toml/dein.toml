@@ -26,17 +26,6 @@ repo = 'vim-denops/denops.vim'
 [[plugins]]
 repo = 'neovim/nvim-lsp'
 
-# [[plugins]]
-# repo = 'neovim/nvim-lspconfig'
-
-# [[plugins]]
-# repo = 'williamboman/mason.nvim'
-# on_source = 'nvim-lspconfig'
-
-# [[plugins]]
-# repo = 'williamboman/mason-lspconfig.nvim'
-# on_source = 'nvim-lspconfig'
-
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
@@ -49,4 +38,10 @@ repo = 'rcarriga/nvim-notify'
 [[plugins]]
 repo = 'MunifTanjim/nui.nvim'
 
+[[plugins]]
+repo = 'glepnir/lspsaga.nvim'
+depends = ['nvim-lspconfig']
+
+[[plugins]]
+repo = 'dag/vim-fish'
 
