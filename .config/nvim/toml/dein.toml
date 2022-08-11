@@ -39,9 +39,5 @@ repo = 'rcarriga/nvim-notify'
 repo = 'MunifTanjim/nui.nvim'
 
 [[plugins]]
-repo = 'glepnir/lspsaga.nvim'
-depends = ['nvim-lspconfig']
-
-[[plugins]]
 repo = 'dag/vim-fish'
 
