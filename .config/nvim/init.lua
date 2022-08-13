@@ -1,8 +1,8 @@
-require('options')      -- neovim init setting
-require('dein')         -- plugins manager
-require('keymaps')      -- keymapping
-require('autocmd')      -- autocommand
-require('setlualine')   -- lualine settings
+require('/daiki/options')      -- neovim init setting
+require('/plugin/dein')         -- plugins manager
+require('/daiki/keymaps')      -- keymapping
+require('/daiki/autocmd')      -- autocommand
+require('/daiki/lualine')   -- lualine settings
 -- require('autopairs')   	-- nvim-autopairs settings
 -- require('lsp')        	-- lsp settings
 -- require('treesitterconfig')   	-- treesitter settings

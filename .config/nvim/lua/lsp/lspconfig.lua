@@ -1,4 +1,4 @@
-local buf = vim.lsp.buf
+-- local buf = vim.lsp.buf
 -- local keymap = vim.api.nvim_set_keymap
 
 local nvim_lsp = require('lspconfig')
