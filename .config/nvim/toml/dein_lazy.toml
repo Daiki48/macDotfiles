@@ -100,4 +100,8 @@ on_source = 'nvim-lspconfig'
 repo = 'williamboman/mason-lspconfig.nvim'
 on_source = 'nvim-lspconfig'
 
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+on_event = 'FileType'
+hook_source = '''lua require 'gitsigns'.setup()'''
 

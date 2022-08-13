@@ -27,12 +27,6 @@ repo = 'vim-denops/denops.vim'
 repo = 'neovim/nvim-lsp'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'MunifTanjim/nui.nvim'
 
 [[plugins]]
