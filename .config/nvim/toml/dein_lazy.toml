@@ -105,3 +105,7 @@ repo = 'lewis6991/gitsigns.nvim'
 on_event = 'FileType'
 hook_source = '''lua require 'gitsigns'.setup()'''
 
+[[plugins]]
+repo = 'lambdalisue/gin.vim'
+depends = 'denops.vim'
+
