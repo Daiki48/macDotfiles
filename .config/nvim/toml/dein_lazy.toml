@@ -111,5 +111,6 @@ depends = 'denops.vim'
 
 [[plugins]]
 repo = 'akinsho/toggleterm.nvim'
+on_event = 'BufEnter'
 rev = 'v2.*'
 hook_source = '''lua require('daiki.toggleterm')'''
