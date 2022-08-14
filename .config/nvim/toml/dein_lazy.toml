@@ -109,3 +109,7 @@ hook_source = '''lua require 'gitsigns'.setup()'''
 repo = 'lambdalisue/gin.vim'
 depends = 'denops.vim'
 
+[[plugins]]
+repo = 'akinsho/toggleterm.nvim'
+rev = 'v2.*'
+hook_source = '''lua require('daiki.toggleterm')'''
