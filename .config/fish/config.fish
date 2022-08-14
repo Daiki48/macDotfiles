@@ -16,3 +16,5 @@ set -gx PATH "$VOLTA_HOME/bin" $PATH
 set -gx PATH "$HOME/tools/lua-language-server/bin/macOS:$PATH"
 set -gx MOCWORD_DATA "$HOME/path/to/mocword.sqlite"
 
+alias lazygit='lazygit -ucd ~/.config/lazygit'
+
