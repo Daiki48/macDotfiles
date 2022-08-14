@@ -1,7 +1,8 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
-	eval (/opt/homebrew/bin/brew shellenv)
+	eval (/opt/homebrew/bin/brew -c)
+  hs.ipc.cliInstall("/opt/homebrew")
 
 	function fish_user_key_bindings
  		 bind \cr 'peco_select_history (commandline -b)'
