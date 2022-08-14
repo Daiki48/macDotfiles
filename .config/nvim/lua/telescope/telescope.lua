@@ -43,7 +43,7 @@ telescope.setup{
 			hijack_netrw = true,
 			mappings = {
 				["n"] = {
-					["N"] = fb_actions.create,
+					["N"] = fb_actions.create,  -- new file & dir is create
 					["Y"] = fb_actions.copy,
 					["M"] = fb_actions.move,
 					["R"] = fb_actions.rename,
