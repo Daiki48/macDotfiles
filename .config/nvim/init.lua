@@ -4,3 +4,4 @@ require('daiki.keymaps')      -- keymapping
 require('daiki.autocmd')      -- autocommand
 require('daiki.lualine')   -- lualine settings
 
+vim.cmd('source ~/macDotfiles/.config/nvim/plugins/profile.vim')
