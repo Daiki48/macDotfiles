@@ -60,4 +60,4 @@ end
 
 
 vim.keymap.set('n', 'tt', ':ToggleTerm<CR>')
-vim.keymap.set("n", "lg", ":lua _lazygit_toggle()<CR>")
+vim.keymap.set("n", "tg", ":lua _lazygit_toggle()<CR>")
