@@ -74,7 +74,12 @@ mason_lspconfig.setup_handlers({ function(server_name)
 					path = path,
 				},
 				completion = { callSnippet = "Replace" },
-				diagnostics = { globals = { 'vim', 'lsp_capabilities' } },
+				diagnostics = {
+					globals = {
+						'vim',
+						'lsp_capabilities',
+					}
+				},
 				workspace = { library = vim.api.nvim_get_runtime_file("", true) },
 				telemetry = { enable = false },
 			}
