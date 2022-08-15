@@ -66,8 +66,9 @@ hook_add = '''lua require('daiki.vim-prettier')'''
 
 [[plugins]]
 repo = 'skanehira/jumpcursor.vim'
-hook_add = '''
-map ;j <Plug>(jumpcursor-jump)
+on_event = 'FileType'
+hook_source = '''
+map <space>j <Plug>(jumpcursor-jump)
 '''
 
 [[plugins]]
