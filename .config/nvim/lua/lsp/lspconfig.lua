@@ -3,6 +3,7 @@
 
 local nvim_lsp = require('lspconfig')
 
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
 local border = {
       {"╔", "FloatBorder"}, -- left_top
       {"═", "FloatBorder"},
