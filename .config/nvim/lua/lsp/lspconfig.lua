@@ -3,6 +3,30 @@
 
 local nvim_lsp = require('lspconfig')
 
+local border = {
+      {"╔", "FloatBorder"}, -- left_top
+      {"═", "FloatBorder"},
+      {"╗", "FloatBorder"}, -- right_top
+      {"║", "FloatBorder"},
+      {"╝", "FloatBorder"}, -- right_bottom
+      {"═", "FloatBorder"},
+      {"╚", "FloatBorder"}, -- left_bottom
+      {"║", "FloatBorder"},
+}
+
+-- To instead override globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
+vim.o.updatetime = 250
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+
+-- mason settings
 local mason = require('mason')
 
 mason.setup({
