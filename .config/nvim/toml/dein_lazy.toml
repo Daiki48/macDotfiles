@@ -48,11 +48,11 @@ hook_source = '''lua require('treesitter.treesitter')'''
 repo = 'yioneko/nvim-yati'
 on_source = 'nvim-treesitter'
 
-# [[plugins]]
-# repo = 'windwp/nvim-ts-autotag'
-# depends = 'nvim-treesitter'
-# on_event = ['InsertEnter']
-# hook_post_source = '''lua require('treesitter.autotag')'''
+[[plugins]]
+repo = 'windwp/nvim-ts-autotag'
+depends = 'nvim-treesitter'
+on_event = ['InsertEnter']
+hook_post_source = '''lua require('treesitter.autotag')'''
 
 # brackets
 [[plugins]]
@@ -130,9 +130,9 @@ on_event = 'BufEnter'
 rev = 'v2.*'
 hook_source = '''lua require('daiki.toggleterm')'''
 
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_event = 'InsertEnter'
-on_source = '''
-source ~/.config/nvim/plugins/vim-closetag.vim
-'''
+# [[plugins]]
+# repo = 'alvan/vim-closetag'
+# on_event = 'InsertEnter'
+# on_source = '''
+# source ~/.config/nvim/plugins/vim-closetag.vim
+# '''
