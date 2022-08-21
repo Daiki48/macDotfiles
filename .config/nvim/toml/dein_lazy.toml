@@ -133,5 +133,6 @@ hook_source = '''lua require('daiki.toggleterm')'''
 
 [[plugins]]
 repo = 'skanehira/denops-docker.vim'
+depends = 'denops.vim'
 on_event = 'BufRead'
 
