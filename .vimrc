@@ -1,11 +1,13 @@
 let g:denops#deno = '/opt/homebrew/bin/deno'
 
 " developement now
-set rtp+=~/dev/pairbc.vim
+set rtp+=~/dev/denops.vim
+set rtp+=~/dev/dps-maze.vim
 
 " syntax & colorscheme
 syntax on
 syntax enable
+" colorscheme coolnessFlair
 colorscheme iceberg
 " let g:lightline={'colorscheme': 'iceberg'}
 
