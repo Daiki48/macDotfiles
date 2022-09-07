@@ -1,0 +1,45 @@
+" show hiddden files in both panes "
+windo normal zo
+
+" set confirm -=delete,permdelete  "
+
+set viewcolumns=*{name}..,16{mtime},7{}.
+set timefmt=" %Y/%m/%d %H:%M:%S "
+
+set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
+set sizefmt=units:iec,precision:3
+
+
+" Ignore case in search patterns unless it contains at least one uppercase  "
+" letter "
+set ignorecase
+set smartcase
+
+" Don't highlight search results automatically "
+set nohlsearch
+
+" Use increment searching (search while typing)  "
+set incsearch
+
+" set line number  "
+set number
+
+
+" show list of matches on tab complition in command-line mode "
+set wildmenu
+
+" use popup window instead of a single line for completion "
+set wildstyle=popup
+
+" show suggestions "
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
+
+set history=100
+
+" What should be saved automatically between vifm runs
+" Like in previous versions of vifm
+" set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
+" Like in vi
+set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
