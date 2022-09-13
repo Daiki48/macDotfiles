@@ -31,5 +31,3 @@ repo = 'MunifTanjim/nui.nvim'
 
 [[plugins]]
 repo = 'dag/vim-fish'
-
-

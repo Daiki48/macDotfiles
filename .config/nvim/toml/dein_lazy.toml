@@ -104,11 +104,6 @@ on_source = 'nvim-lspconfig'
 repo = 'williamboman/mason-lspconfig.nvim'
 on_source = 'nvim-lspconfig'
 
-# [[plugins]]
-# repo = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
-# on_source = 'nvim-lspconfig'
-# hook_post_source = '''lua require('daiki.lsp_lines')'''
-
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 on_event = 'FileType'
