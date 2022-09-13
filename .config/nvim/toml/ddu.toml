@@ -62,6 +62,7 @@ hook_source = '''
       \       'matchers': [
       \         'matcher_substring', 'matcher_hidden',
       \       ],
+			\       'columns': ['icon_filename'],
       \     },
       \     'dein': {
       \       'defaultAction': 'cd',
@@ -72,6 +73,11 @@ hook_source = '''
       \       'cmd': ['git', 'ls-files', '-co', '--exclude-standard'],
       \     },
       \   },
+			\   'columnParams': {
+			\     'icon_filename': {
+			\       'defaultIcon': { 'icon': '' },
+			\     },
+			\   },
       \   'uiOptions': {
       \     'filer': {
       \       'toggle': v:true,
@@ -231,7 +237,7 @@ hook_add = '''
   nnoremap ;fj <Cmd>Ddu
   \ -name=filer-`win_getid()` -ui=filer -resume -sync file
   \ -source-option-path=`getcwd()`
-  \ -source-option-columns=filename<CR>
+  \ -source-option-columns=icon_filename<CR>
 '''
 [plugins.ftplugin]
 ddu-filer = '''
@@ -295,14 +301,8 @@ ddu-filer = '''
   \   'sourceOptions': {
   \     'file': {
   \       'matchers': ToggleHidden('file'),
-	\       'columns': ['icon_filename']
   \     },
   \   },
-	\   'columnParams': {
-	\     'icon_filename': {
-	\       'defaultIcon': { 'icon': '' }
-	\     },
-	\   },
   \ })<CR>
   nnoremap <buffer> <C-l>
   \ <Cmd>call ddu#ui#filer#do_action('checkItems')<CR>
