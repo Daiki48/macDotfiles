@@ -56,55 +56,55 @@ telescope.setup{
 
 require("telescope").load_extension "file_browser"
 
-vim.keymap.set("n", ";ff", function()
-	builtin.find_files({
-		prompt_prefix = "🔍: ",
-		no_ignore = false,
-		hidden = true,
-		initial_mode = "insert",
-	})
-end)
+-- vim.keymap.set("n", ";ff", function()
+-- 	builtin.find_files({
+-- 		prompt_prefix = "🔍: ",
+-- 		no_ignore = false,
+-- 		hidden = true,
+-- 		initial_mode = "insert",
+-- 	})
+-- end)
 
-vim.keymap.set("n", ";fg", function()
-	builtin.live_grep()
-end)
+-- vim.keymap.set("n", ";fg", function()
+-- 	builtin.live_grep()
+-- end)
 
-vim.keymap.set("n", ";fb", function()
-	builtin.buffers({
-		initial_mode = "normal",
-	})
-end)
+-- vim.keymap.set("n", ";fb", function()
+-- 	builtin.buffers({
+-- 		initial_mode = "normal",
+-- 	})
+-- end)
 
-vim.keymap.set("n", ";fh", function()
-	builtin.help_tags({
-		initial_mode = "normal",
-	})
-end)
+-- vim.keymap.set("n", ";fh", function()
+-- 	builtin.help_tags({
+-- 		initial_mode = "normal",
+-- 	})
+-- end)
 
-vim.keymap.set("n", ";fr", function()
-	builtin.resume({
-		initial_mode = "normal",
-	})
-end)
+-- vim.keymap.set("n", ";fr", function()
+-- 	builtin.resume({
+-- 		initial_mode = "normal",
+-- 	})
+-- end)
 
-vim.keymap.set("n", ";fd", function()
-	builtin.diagnostics({
-		initial_mode = "normal",
-	})
-end)
+-- vim.keymap.set("n", ";fd", function()
+-- 	builtin.diagnostics({
+-- 		initial_mode = "normal",
+-- 	})
+-- end)
 
-vim.keymap.set("n", ";fj", function()
-	telescope.extensions.file_browser.file_browser({
-		prompt_prefix = "🔍: ",
-		path = "%:p:h",
-		cwd = telescope_buffer_dir(),
-		hidden = true,
-		initial_mode = "normal",
-		layout_config = {
-			height = 40,
-			width = 90,
-		},
-		grouped = true,
-	})
-end)
+-- vim.keymap.set("n", ";fj", function()
+-- 	telescope.extensions.file_browser.file_browser({
+-- 		prompt_prefix = "🔍: ",
+-- 		path = "%:p:h",
+-- 		cwd = telescope_buffer_dir(),
+-- 		hidden = true,
+-- 		initial_mode = "normal",
+-- 		layout_config = {
+-- 			height = 40,
+-- 			width = 90,
+-- 		},
+-- 		grouped = true,
+-- 	})
+-- end)
 
