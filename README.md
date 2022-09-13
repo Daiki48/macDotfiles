@@ -101,3 +101,8 @@ or
 ```
 $ ln -s ~/macDotfiles/.vimrc ~/
 ```
+
+# Author
+
+Daiki Nakashima  
+< daiki48.engineer@gmail.com >
