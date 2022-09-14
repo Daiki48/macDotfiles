@@ -88,10 +88,14 @@ hook_source = '''
       \       'filterSplitDirection': 'floating',
       \       'previewFloating': v:true,
 			\       'floatingBorder': 'rounded',
+			\       'winCol': &columns / 14,
+			\       'winWidth': 70,
       \     },
       \     'filer': {
       \       'split': 'floating',
       \       'toggle': v:true,
+			\       'winCol': &columns / 14,
+			\       'winWidth': 70,
       \     },
       \   },
       \   'kindOptions': {
