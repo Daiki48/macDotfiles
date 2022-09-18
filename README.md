@@ -1,6 +1,8 @@
 # macDotfiles
 
-dotfiles for mac
+dotfiles
+
+2022/9/18 (Sun) private -> public
 
 # managed
 
