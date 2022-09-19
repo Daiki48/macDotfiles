@@ -20,3 +20,5 @@ for f in .??*; do
   # シンボリックを作成
   ln -s ${DOTFILES_DIR}/$f ~
 done
+
+
